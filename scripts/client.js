@@ -29,4 +29,22 @@ function submitInfo(){
     //showSubmit();
     // empty text input
     $( '#firstName' ).val( '' );
+    $( '#lastName' ).val( '' );
+    $( '#idNum' ).val( '' );
+    $( '#jobTitle' ).val( '' );
+    $( '#annualSalary').val( '' );
+    // call updateEmployee
+    updateEmployee();
 } // end submitInfo
+
+function updateEmployee (){
+    // target ul by id
+    let el = $( '#employeesOut' );
+    // empty list
+    el.empty();
+    // loop through employees 
+    for ( let i=0; i<employees.length; i++){
+    // append each employee to DOM
+        el.append( `<li> ${employees[i].firstName} ${employees[i].lastName} ${employees[i].idNumber} ${employees[i].jobTitle} ${employees[i].annualSalaray}</li>` );
+    }// end for
+} // end update employee
