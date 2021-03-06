@@ -38,6 +38,7 @@ function submitInfo(){
 } // end submitInfo
 
 function updateEmployee (){
+    console.log( 'in updateEmployee');
     // target ul by id
     let el = $( '#employeesOut' );
     // empty list
@@ -48,3 +49,4 @@ function updateEmployee (){
         el.append( `<li> ${employees[i].firstName} ${employees[i].lastName} ${employees[i].idNumber} ${employees[i].jobTitle} ${employees[i].annualSalaray}</li>` );
     }// end for
 } // end update employee
+
