@@ -21,7 +21,7 @@ function submitInfo(){
         lastName: lName,
         idNumber: idNum,
         jobTitle: jTitle,
-        annualSalaray: annualSal
+        annualSalary: annualSal
     } // end newObject
     // push that object into the employees
     employees.push( newObject );
@@ -46,7 +46,36 @@ function updateEmployee (){
     // loop through employees 
     for ( let i=0; i<employees.length; i++){
     // append each employee to DOM
-        el.append( `<li> ${employees[i].firstName} ${employees[i].lastName} ${employees[i].idNumber} ${employees[i].jobTitle} ${employees[i].annualSalaray}</li>` );
+        el.append( `<li> ${employees[i].firstName} ${employees[i].lastName} ${employees[i].idNumber} ${employees[i].jobTitle} ${employees[i].annualSalary}</li>` );
     }// end for
+    compileSal();
 } // end update employee
 
+function compileSal(){
+    console.log( 'in compileSal' );
+    // add them together
+    let total = 0;
+    
+    let el = $( '#total' );
+    // empty el
+    el.empty();
+    //loop through
+    for( let i=0; i<employees.length; i++){
+        total += Number(employees[i].annualSalary); 
+    };// end for loop
+    console.log( total )
+    
+    //let monthlyTotal = total/12
+ // end compileSal
+console.log( 'in displayTotal' );
+
+    let add = $( '#total' );
+    
+    add.empty(); 
+
+    for( let i=0; i<employees.length; i++){
+        let el = $( '#total');
+        el.empty();
+        add.append( `${total}` );
+ };
+}
