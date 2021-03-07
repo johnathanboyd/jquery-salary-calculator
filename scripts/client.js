@@ -8,7 +8,7 @@ function onReady(){
     //click event handlers on load
     $( '#submitButton').on('click', submitInfo);
     // click handler in dynamic list item
-    $( '#employeesOut').on('click', '#deleteButton', deleteLine );
+    $( '#employeesOut').on('click', '#deleteButton', deleteLine);
     //$( '#redLight').css('background-color:', 'red', redCheck);
 } // end onReady
 
@@ -28,7 +28,7 @@ function submitInfo(){
         annualSalary: annualSal
     } // end newObject
     // push that object into the employees
-    employees.push( newObject );
+    employees.push();
     // update DOM
     //showSubmit();
     // empty text input
@@ -38,7 +38,7 @@ function submitInfo(){
     $( '#jobTitle' ).val( '' );
     $( '#annualSalary').val( '' );
     // call updateEmployee
-    updateEmployee();
+    updateEmployee(newObject);
 } // end submitInfo
 
 function updateEmployee (){
@@ -106,4 +106,29 @@ function deleteLine(){
     let el = $( this ).parent();
     
     el.remove( );
+
+    // delete object from original array
+    deleteEmployee()
 } // end delete line
+
+function deleteEmployee(){
+    console.log('in deleteEmployee')
+
+    
+    employees.indexOf( $() )
+    //let el;
+    //    for (let i=0; i<employees.length; i++){
+    //      `${employees[i].firstName}`
+
+                //employees.splice(`${employees[i]}`, 1)
+    }; 
+
+
+    //employees.splice(  )
+        /*for (let i=0; i<employees.length; i++){
+            if(  ){
+            console.log(`${employees[i].firstName}`)
+            }
+                //employees.splice(`${employees[i]}`, 1);
+         } // for*/
+//}; // end delete employee
