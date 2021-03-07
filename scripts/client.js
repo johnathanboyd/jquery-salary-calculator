@@ -82,7 +82,7 @@ function compileSal(){
     for( let i=0; i<employees.length; i++){
         let el = $( '#total');
         el.empty();
-        add.append( `${monthlyTotal}`);
+        add.append( `$${monthlyTotal}`);
     };
 redCheck();
 }
