@@ -5,8 +5,10 @@ let monthly =[];
 
 function onReady(){
     console.log( 'JQ' )
-    //click event handlers
+    //click event handlers on load
     $( '#submitButton').on('click', submitInfo);
+    // click handler in dynamic list item
+    $( '#employeesOut').on('click', '#deleteButton', deleteLine );
     //$( '#redLight').css('background-color:', 'red', redCheck);
 } // end onReady
 
@@ -48,7 +50,7 @@ function updateEmployee (){
     // loop through employees 
     for ( let i=0; i<employees.length; i++){
     // append each employee to DOM
-        el.append( `<li> ${employees[i].firstName} ${employees[i].lastName} ${employees[i].idNumber} ${employees[i].jobTitle} ${employees[i].annualSalary}</li>` );
+        el.append( `<li id=indvidual> ${employees[i].firstName} ${employees[i].lastName} ${employees[i].idNumber} ${employees[i].jobTitle} ${employees[i].annualSalary} <button id="deleteButton">Delete</button></li>` );
     }// end for
     compileSal();
 } // end update employee
@@ -97,3 +99,11 @@ function redCheck(){
     }
    
 };
+
+function deleteLine(){
+    console.log( 'in deleteLine');
+    // target ul by id
+    let el = $( this ).parent();
+    
+    el.remove( );
+} // end delete line
