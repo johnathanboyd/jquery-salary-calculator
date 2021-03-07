@@ -1,11 +1,13 @@
 $( document ).ready( onReady );
 
 let employees = [];
+let monthly =[];
 
 function onReady(){
     console.log( 'JQ' )
     //click event handlers
     $( '#submitButton').on('click', submitInfo);
+    //$( '#redLight').css('background-color:', 'red', redCheck);
 } // end onReady
 
 function submitInfo(){
@@ -63,11 +65,15 @@ function compileSal(){
     for( let i=0; i<employees.length; i++){
         total += Number(employees[i].annualSalary); 
     };// end for loop
-    console.log( total )
+    console.log( 'this is annually:', total )
     
-    //let monthlyTotal = total/12
- // end compileSal
-console.log( 'in displayTotal' );
+    let monthlyTotal = total/12
+    console.log('This is monthly:', monthlyTotal)
+
+    monthly.push( monthlyTotal );
+    
+
+    console.log( 'in displayTotal' );
 
     let add = $( '#total' );
     
@@ -76,6 +82,18 @@ console.log( 'in displayTotal' );
     for( let i=0; i<employees.length; i++){
         let el = $( '#total');
         el.empty();
-        add.append( `${total}` );
- };
+        add.append( `${monthlyTotal}`);
+    };
+redCheck();
 }
+
+function redCheck(){
+    console.log( 'in redCheck')
+    for(i=0; i<monthly.length; i++){
+        let el = monthly[monthly.length-1]
+        if( el > 20000){
+            $('span').css("background-color", "red");
+        }
+    }
+   
+};
