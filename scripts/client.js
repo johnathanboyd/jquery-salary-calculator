@@ -28,7 +28,7 @@ function submitInfo(){
         annualSalary: annualSal
     } // end newObject
     // push that object into the employees
-    employees.push();
+    employees.push(newObject);
     // update DOM
     //showSubmit();
     // empty text input
@@ -41,17 +41,14 @@ function submitInfo(){
     updateEmployee(newObject);
 } // end submitInfo
 
-function updateEmployee (){
+function updateEmployee (object){
     console.log( 'in updateEmployee');
     // target ul by id
     let el = $( '#employeesOut' );
-    // empty list
-    el.empty();
-    // loop through employees 
-    for ( let i=0; i<employees.length; i++){
+     
     // append each employee to DOM
-        el.append( `<li id=indvidual> ${employees[i].firstName} ${employees[i].lastName} ${employees[i].idNumber} ${employees[i].jobTitle} ${employees[i].annualSalary} <button id="deleteButton">Delete</button></li>` );
-    }// end for
+    el.append( `<li id=indvidual> ${object.firstName} ${object.lastName} ${object.idNumber} ${object.jobTitle} ${object.annualSalary} <button id="deleteButton">Delete</button></li>` );
+    //}// end for
     compileSal();
 } // end update employee
 
@@ -74,7 +71,6 @@ function compileSal(){
 
     monthly.push( monthlyTotal );
     
-
     console.log( 'in displayTotal' );
 
     let add = $( '#total' );
@@ -113,14 +109,8 @@ function deleteLine(){
 
 function deleteEmployee(){
     console.log('in deleteEmployee')
-
+    $(this).parent().parent().remove()
     
-    employees.indexOf( $() )
-    //let el;
-    //    for (let i=0; i<employees.length; i++){
-    //      `${employees[i].firstName}`
-
-                //employees.splice(`${employees[i]}`, 1)
     }; 
 
 
